@@ -30,10 +30,30 @@ export const Education: React.FC = () => {
                 Academic Degree
               </span>
               <h3 className="text-xl sm:text-2xl font-bold text-[#241a0f] mb-2">
-                Bachelor of Technology (B.Tech) in Computer Science &amp; Engineering
+                Bachelor of Computer Application (BCA) in Computer Science
               </h3>
               <p className="text-base text-[#47473f] mb-3">
-                Accredited University Engineering Curriculum
+                Makhanlal Chaturvedi National University of Journalism and Communication
+              </p>
+              <div className="flex items-center gap-2 text-[#47473f] font-mono text-xs">
+                <span className="material-symbols-outlined text-[16px] text-[#5b6141]">calendar_month</span>
+                <span>Graduated with Core Software Engineering &amp; Data Structures Focus</span>
+              </div>
+            </div>
+
+            <div>
+              {/* <div className="w-10 h-10 rounded-full bg-[#dde3ba] flex items-center justify-center text-[#606645] mb-5">
+                <span className="material-symbols-outlined text-[20px]">school</span>
+              </div> */}
+              <br></br>
+              <span className="text-[11px] font-bold uppercase text-[#5b6141] tracking-widest block mb-1">
+                Academic Degree
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#241a0f] mb-2">
+                Master of Computer Application (MCA) in Computer Science
+              </h3>
+              <p className="text-base text-[#47473f] mb-3">
+                Integral University, Lucknow
               </p>
               <div className="flex items-center gap-2 text-[#47473f] font-mono text-xs">
                 <span className="material-symbols-outlined text-[16px] text-[#5b6141]">calendar_month</span>

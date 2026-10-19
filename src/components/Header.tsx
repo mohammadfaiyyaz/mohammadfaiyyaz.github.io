@@ -57,18 +57,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRunner }) => {
       <div className="h-20 max-w-[1280px] mx-auto px-5 md:px-10 lg:px-12 flex items-center justify-between gap-4">
         {/* Brand Identity */}
         <a href="#hero" className="flex items-center gap-2.5 group cursor-pointer focus:outline-none">
-          <img
+          {/* <img
             alt="MF Monogram Logo"
-            className="h-8 w-auto object-contain transition-transform group-hover:scale-105"
+            className="h-8 w-auto transition-transform group-hover:scale-105"
             src={LOGO_URL}
-          />
+          /> */}
           <div className="flex flex-col">
             <span className="font-bold text-lg tracking-tight text-[#241a0f] leading-none group-hover:text-[#5b6141] transition-colors">
-              Mohammad Faiyyaz
+              IMFaiyyaz
             </span>
-            <span className="text-[11px] uppercase tracking-wider text-[#5b6141] font-bold leading-tight mt-1">
+            {/* <span className="text-[11px] uppercase tracking-wider text-[#5b6141] font-bold leading-tight mt-1">
               .NET Engineer • Software Developer
-            </span>
+            </span> */}
           </div>
         </a>
 

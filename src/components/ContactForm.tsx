@@ -384,7 +384,7 @@ export const ContactForm: React.FC = () => {
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      linkedin.com/in/mohammad-faiyyaz
+                      linkedin.com/in/mohammadfaiyyaz
                     </a>
                   </div>
                 </div>
