@@ -97,10 +97,16 @@ export const Hero: React.FC = () => {
               <span className="text-2xl sm:text-3xl text-[#151608] font-bold block mb-1">.NET Core</span>
               <span className="text-[11px] uppercase text-[#5b6141] tracking-wider font-bold">C# • EF Core • APIs</span>
             </div>
+
             <div className="bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-sm border border-[#f4dfce] text-center hover:border-[#c4caa2] transition-colors">
-              <span className="text-2xl sm:text-3xl text-[#151608] font-bold block mb-1">Full-Stack</span>
-              <span className="text-[11px] uppercase text-[#5b6141] tracking-wider font-bold">Angular Integration</span>
+              <span className="text-2xl sm:text-3xl text-[#151608] font-bold block mb-1">
+                Full-Stack
+              </span>
+              <span className="text-[11px] uppercase text-[#5b6141] tracking-wider font-bold block mb-1">
+                Angular Integration
+              </span>
             </div>
+
           </div>
         </div>
       </div>

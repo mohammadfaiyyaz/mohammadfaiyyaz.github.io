@@ -380,7 +380,7 @@ export const ContactForm: React.FC = () => {
                     </span>
                     <a
                       className="font-mono text-xs text-[#241a0f] hover:text-[#5b6141] underline"
-                      href="https://www.linkedin.com"
+                      href="https://www.linkedin.com/in/mohammadfaiyyaz/?isSelfProfile=true"
                       rel="noopener noreferrer"
                       target="_blank"
                     >
@@ -399,7 +399,7 @@ export const ContactForm: React.FC = () => {
                     </span>
                     <a
                       className="font-mono text-xs text-[#241a0f] hover:text-[#5b6141] underline"
-                      href="https://github.com"
+                      href="https://github.com/mohammadfaiyyaz"
                       rel="noopener noreferrer"
                       target="_blank"
                     >

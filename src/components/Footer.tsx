@@ -65,7 +65,7 @@ export const Footer: React.FC = () => {
             <div className="flex flex-wrap items-center gap-2 pt-2">
               <a
                 className="px-4 py-2 rounded-full bg-[#f9e4d4] hover:bg-[#5b6141] hover:text-white text-[#241a0f] transition-colors font-mono text-xs inline-flex items-center gap-1.5 border border-[#f4dfce]"
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/in/mohammadfaiyyaz/?isSelfProfile=true"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -74,7 +74,7 @@ export const Footer: React.FC = () => {
               </a>
               <a
                 className="px-4 py-2 rounded-full bg-[#f9e4d4] hover:bg-[#5b6141] hover:text-white text-[#241a0f] transition-colors font-mono text-xs inline-flex items-center gap-1.5 border border-[#f4dfce]"
-                href="https://github.com"
+                href="https://github.com/mohammadfaiyyaz"
                 rel="noopener noreferrer"
                 target="_blank"
               >
