@@ -4,9 +4,11 @@ import { ProjectData, SkillCategory, UnitTestResult } from '../types';
 // export const RESUME_VIEW_URL = 'https://drive.google.com/file/d/1mGbstn5IvV9hf6RbYKoiUb9TBAQgzTvh/view?usp=sharing';
 // export const RESUME_PREVIEW_EMBED = 'https://drive.google.com/file/d/1mGbstn5IvV9hf6RbYKoiUb9TBAQgzTvh/preview';
 
-export const RESUME_DOWNLOAD_URL = 'src/Public/resume.pdf';
-export const RESUME_VIEW_URL = 'src/Public/resume.pdf';
-export const RESUME_PREVIEW_EMBED = 'src/Public/resume.pdf';
+
+export const RESUME_DOWNLOAD_URL = '/resume.pdf';
+export const RESUME_VIEW_URL = '/resume.pdf';
+export const RESUME_PREVIEW_EMBED = '/resume.pdf';
+
 
 export const LOGO_URL = 'https://lh3.googleusercontent.com/aida/AEtjO1Xq-Pv-m1PLhTeFuUjt83dHJIQoUXeaHA1HBQ8L5MM2pae7NFe2tc5kH8LaBlIHNo_dAag1vXXoGkqmRComl2uLi7auh9LviMSg7d72q7rX0q27AoeI3ROxbOnnMBkqdD7C6D34MfpIixXiwb0CzgXhaCoDN_hUqgScwj4AkE2vWfZ2hZOa6Hw1W4WDqT65yPGQpfQyPZIWkxjBDCx2K3ZvJ6QvvXESEcy0vPCWOFHWyB17sY7ToHwcMlc';
 export const DUBAI_SKYLINE_HERO = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDGk_I1oFjezd_uOuGyP_xm028pnv-LdN_LJI9s5mC3SfxneO7OCnVR-xkAmthBr3jnRaTPXHSl_uJow-tMH7SLx5YWq_xI0jIfWLJRV7ntgzfnZ13FMqJiDQ7Fm2DuA4mszqfEumkjjw0cSzgAxM05D1ygf02DJuc0HyOo8vXaPgqKZgXqukilC1rUlCTATL52fx1Rh97k9L3ydx_Mhh0UliYU3AKKaFVMEI1UHD3Bu5S6GFyi8BSa9A';

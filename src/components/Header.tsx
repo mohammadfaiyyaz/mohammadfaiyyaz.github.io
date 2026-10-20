@@ -107,18 +107,24 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRunner }) => {
             <span>API Workbench</span>
           </a>
 
-          {/* Download Resume Button */}
-          <a
-            className="inline-flex items-center gap-2 bg-[#151608] text-white hover:bg-[#5b6141] text-xs sm:text-[13px] font-medium px-4 sm:px-5 py-2 rounded-full transition-all duration-200 shadow-[0_2px_8px_rgba(21,22,8,0.12)] hover:-translate-y-0.5 active:translate-y-0"
-            href={RESUME_DOWNLOAD_URL}
-            rel="noopener noreferrer"
-            target="_blank"
-            download
-          >
-            <span className="material-symbols-outlined text-[16px]">download</span>
-            <span className="hidden xs:inline sm:inline">Download Resume</span>
-            <span className="xs:hidden sm:hidden">Resume</span>
-          </a>
+
+            {/* Download Resume Button */}
+            <a
+              className="inline-flex items-center gap-2 bg-[#151608] text-white hover:bg-[#5b6141] text-xs sm:text-[13px] font-medium px-4 sm:px-5 py-2 rounded-full transition-all duration-200 shadow-[0_2px_8px_rgba(21,22,8,0.12)] hover:-translate-y-0.5 active:translate-y-0"
+              href={RESUME_DOWNLOAD_URL}
+              download="Faiyyaz-Resume.pdf"
+            >
+              <span className="material-symbols-outlined text-[16px]">
+                download
+              </span>
+              <span className="hidden xs:inline sm:inline">
+                Download Resume
+              </span>
+              <span className="xs:hidden sm:hidden">
+                Resume
+              </span>
+            </a>
+
 
           {/* Mobile Menu Button */}
           <button

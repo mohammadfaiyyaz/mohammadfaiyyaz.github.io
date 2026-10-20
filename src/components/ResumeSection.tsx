@@ -22,25 +22,31 @@ export const ResumeSection: React.FC = () => {
             </h2>
           </div>
           <div className="flex flex-wrap gap-3">
+
             <a
               className="inline-flex items-center gap-2 bg-[#151608] text-white hover:bg-[#5b6141] px-5 py-2.5 rounded-full text-xs sm:text-[13px] font-semibold transition-all shadow-sm hover:-translate-y-0.5"
               href={RESUME_DOWNLOAD_URL}
-              rel="noopener noreferrer"
-              target="_blank"
-              download
+              download="Faiyyaz-Resume.pdf"
             >
-              <span className="material-symbols-outlined text-[18px]">download</span>
+              <span className="material-symbols-outlined text-[18px]">
+                download
+              </span>
               <span>Direct PDF Download</span>
             </a>
+
+
             <a
               className="inline-flex items-center gap-2 bg-[#f9e4d4] text-[#241a0f] hover:bg-[#5b6141] hover:text-white px-5 py-2.5 rounded-full text-xs sm:text-[13px] font-semibold transition-all"
               href={RESUME_VIEW_URL}
               rel="noopener noreferrer"
               target="_blank"
             >
-              <span className="material-symbols-outlined text-[18px]">open_in_new</span>
-              <span>View in Google Drive</span>
+              <span className="material-symbols-outlined text-[18px]">
+                open_in_new
+              </span>
+              <span>View Resume</span>
             </a>
+
           </div>
         </div>
 
@@ -95,27 +101,28 @@ export const ResumeSection: React.FC = () => {
             />
           </div>
 
+          
           <p className="text-xs sm:text-[13px] text-[#47473f] text-center pt-1">
-            Notice: If your browser blocks embedded Google Drive frames due to third-party cookie restrictions, use the{' '}
+            Notice: If the resume preview does not load, use the{' '}
             <a
               className="text-[#5b6141] underline font-semibold hover:text-[#151608]"
               href={RESUME_VIEW_URL}
               rel="noopener noreferrer"
               target="_blank"
             >
-              View in Google Drive
+              View Resume
             </a>{' '}
             or{' '}
             <a
               className="text-[#5b6141] underline font-semibold hover:text-[#151608]"
               href={RESUME_DOWNLOAD_URL}
-              rel="noopener noreferrer"
-              target="_blank"
+              download="Faiyyaz-Resume.pdf"
             >
               Direct Download
             </a>{' '}
             buttons above.
           </p>
+
         </div>
       </div>
     </section>

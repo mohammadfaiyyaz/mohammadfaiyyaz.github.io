@@ -62,16 +62,19 @@ export const Hero: React.FC = () => {
               <span>View My Projects</span>
             </a>
 
+
             {/* Direct Resume Download */}
             <a
               className="inline-flex items-center gap-2 bg-[#f9e4d4] text-[#241a0f] hover:bg-[#5b6141] hover:text-white text-sm sm:text-[15px] font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-sm hover:-translate-y-0.5"
               href={RESUME_DOWNLOAD_URL}
-              rel="noopener noreferrer"
-              target="_blank"
+              download="Faiyyaz-Resume.pdf"
             >
-              <span className="material-symbols-outlined text-[18px]">download_for_offline</span>
+              <span className="material-symbols-outlined text-[18px]">
+                download_for_offline
+              </span>
               <span>Download Resume</span>
             </a>
+
 
             {/* Contact Anchor */}
             <a
