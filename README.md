@@ -52,7 +52,19 @@ npm run dev
 npm run build
 ```
 
-## GitHub Pages and EmailJS
+## Deployment and EmailJS
+
+### Vercel
+
+For `mohammadfaiyyaz.vercel.app`, open **Vercel → Project → Settings → Environment Variables** and add these variables for the **Production** environment:
+
+- `VITE_EMAILJS_SERVICE_ID`
+- `VITE_EMAILJS_TEMPLATE_ID`
+- `VITE_EMAILJS_PUBLIC_KEY`
+
+Redeploy the project after saving them. In EmailJS, add `https://mohammadfaiyyaz.vercel.app` to the domain allowlist.
+
+### GitHub Pages
 
 The GitHub Pages workflow reads EmailJS settings at build time. In the repository, open **Settings → Environments → github-pages → Environment secrets** and add:
 
