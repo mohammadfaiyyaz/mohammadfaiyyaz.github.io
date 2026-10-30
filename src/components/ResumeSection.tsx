@@ -62,7 +62,7 @@ export const ResumeSection: React.FC = () => {
                   Mohammad Faiyyaz - Resume.pdf
                 </span>
                 <span className="font-mono text-xs text-[#47473f]">
-                  Google Drive File ID: 1mGbstn5IvV9hf6RbYKoiUb9TBAQgzTvh
+                  PDF resume
                 </span>
               </div>
             </div>
@@ -70,7 +70,7 @@ export const ResumeSection: React.FC = () => {
             <div className="flex items-center gap-2">
               <div className="p-2 rounded bg-[#ffeada] text-xs font-mono text-[#5b6141] flex items-center gap-1.5 border border-[#f4dfce]">
                 <span className="material-symbols-outlined text-[16px]">lock_open</span>
-                <span>Permissions: Anyone with the link can view</span>
+                <span>Available to view or download</span>
               </div>
               <button
                 type="button"

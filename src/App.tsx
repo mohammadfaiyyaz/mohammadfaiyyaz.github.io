@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -8,7 +9,6 @@ import { Projects } from './components/Projects';
 import { Education } from './components/Education';
 import { ResumeSection } from './components/ResumeSection';
 import { ContactForm } from './components/ContactForm';
-import { ArchitectureBlueprint } from './components/ArchitectureBlueprint';
 import { Footer } from './components/Footer';
 
 export default function App() {
@@ -41,7 +41,6 @@ export default function App() {
         <Education />
         <ResumeSection />
         <ContactForm />
-        <ArchitectureBlueprint />
       </main>
 
       {/* Footer */}

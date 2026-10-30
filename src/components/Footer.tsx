@@ -1,5 +1,4 @@
 import React from 'react';
-import { LOGO_URL } from '../data/portfolioData';
 
 export const Footer: React.FC = () => {
   return (
@@ -9,17 +8,12 @@ export const Footer: React.FC = () => {
           {/* Col 1: Bio & Branding (5 cols) */}
           <div className="md:col-span-5 flex flex-col gap-3">
             <div className="flex items-center gap-2.5">
-              <img
-                alt="MF Monogram Logo"
-                className="h-7 w-auto object-contain"
-                src={LOGO_URL}
-              />
               <span className="text-xl font-bold text-[#241a0f]">
                 Mohammad Faiyyaz
               </span>
             </div>
             <p className="text-sm text-[#47473f] max-w-sm leading-relaxed">
-              Software Developer • .NET Engineer specializing in scalable enterprise architectures, clean API ecosystems, and mission-critical systems.
+              Software Developer and .NET Engineer focused on backend services, web APIs, and enterprise applications.
             </p>
             <div className="flex items-center gap-2 text-[#5b6141] text-xs font-semibold">
               <span className="material-symbols-outlined text-[18px]">location_on</span>
@@ -43,10 +37,7 @@ export const Footer: React.FC = () => {
                 Core Competencies
               </a>
               <a className="text-[#47473f] hover:text-[#241a0f] transition-colors" href="#projects">
-                Enterprise Case Studies
-              </a>
-              <a className="text-[#47473f] hover:text-[#241a0f] transition-colors" href="#architecture">
-                Architecture Blueprint
+                Projects
               </a>
               <a className="text-[#47473f] hover:text-[#241a0f] transition-colors" href="#contact">
                 Direct Contact
@@ -87,9 +78,9 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[#47473f] text-xs">
-          <p>© {new Date().getFullYear()} Mohammad Faiyyaz. All rights reserved.</p>
+          <p>Copyright {new Date().getFullYear()} Mohammad Faiyyaz. All rights reserved.</p>
           <p className="font-mono text-[#5b6141]">
-            Enterprise .NET Core &amp; Angular Architecture
+            .NET Development
           </p>
         </div>
       </div>

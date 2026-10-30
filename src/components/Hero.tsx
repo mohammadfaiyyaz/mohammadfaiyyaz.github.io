@@ -20,7 +20,7 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(#5b6141_1px,transparent_1px)] [background-size:32px_32px] opacity-15" />
 
         {/* Hero Content Container */}
-        <div className="relative z-10 max-w-[1280px] w-full mx-auto px-5 md:px-10 lg:px-12 py-10 flex flex-col items-center text-center">
+        <div className="relative z-10 max-w-[1280px] w-full mx-auto px-5 md:px-10 lg:px-12 py-10 flex flex-col items-center text-center -translate-y-6 md:-translate-y-10">
           {/* Experience Tenure Pill */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#5b6141] text-white shadow-md mb-6 max-w-full">
             <span className="material-symbols-outlined text-[16px] text-[#dde3ba] shrink-0">
@@ -89,7 +89,7 @@ export const Hero: React.FC = () => {
           {/* Quick Metatags Bar */}
           <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 w-full max-w-3xl">
             <div className="bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-sm border border-[#f4dfce] text-center hover:border-[#c4caa2] transition-colors">
-              <span className="text-2xl sm:text-3xl text-[#151608] font-bold block mb-1">4.2+</span>
+              <span className="text-2xl sm:text-3xl text-[#151608] font-bold block mb-1">4 Years 2 Months</span>
               <span className="text-[11px] uppercase text-[#5b6141] tracking-wider font-bold">Years Experience</span>
             </div>
             <div className="bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-sm border border-[#f4dfce] text-center hover:border-[#c4caa2] transition-colors">

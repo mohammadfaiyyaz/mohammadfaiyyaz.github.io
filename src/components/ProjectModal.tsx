@@ -45,13 +45,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Core Modules Breakdown */}
         <div className="mb-6 bg-white p-5 rounded-xl border border-[#f4dfce]">
           <h4 className="text-xs font-bold uppercase text-[#5b6141] tracking-wider mb-3">
-            Core Functional Modules
+            {project.statusBadge === 'In progress' ? 'Planned Features' : 'Project Features'}
           </h4>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#241a0f]">
             {project.modules.map((mod, i) => (
               <div key={i} className="flex items-start gap-2">
                 <span className="material-symbols-outlined text-[#5b6141] text-[16px] mt-0.5 shrink-0">
-                  check_box
+                  {project.statusBadge === 'In progress' ? 'lightbulb' : 'check_box'}
                 </span>
                 <span>{mod}</span>
               </div>
@@ -62,59 +62,17 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Architecture Topology */}
         <div className="mb-6 bg-[#ffeada] p-5 rounded-xl border border-[#f4dfce]">
           <h4 className="text-xs font-bold uppercase text-[#5b6141] tracking-wider mb-2">
-            Architectural Pipeline
+            {project.statusBadge === 'In progress' ? 'Planned Technology Stack' : 'Technology Stack'}
           </h4>
           <p className="text-sm text-[#241a0f] font-mono leading-relaxed bg-white/70 p-3 rounded-lg border border-[#f4dfce]">
             {project.architectureSummary}
           </p>
         </div>
 
-        {/* Sample API Contract */}
-        {project.apiEndpointSample && (
-          <div className="mb-6 bg-[#151608] text-white p-5 rounded-xl">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-mono text-[#dde3ba] font-bold uppercase">
-                REST API Contract (ASP.NET Core)
-              </span>
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#5b6141] text-white">
-                {project.apiEndpointSample.method}
-              </span>
-            </div>
-            <div className="font-mono text-xs text-[#e0e6bd] mb-2">
-              <code>{project.apiEndpointSample.path}</code>
-            </div>
-            <p className="text-xs text-[#91927d] mb-4">
-              {project.apiEndpointSample.description}
-            </p>
-
-            {project.apiEndpointSample.samplePayload && (
-              <div className="mb-3">
-                <span className="text-[10px] uppercase font-mono text-[#a08e7d] block mb-1">
-                  Request Payload (JSON):
-                </span>
-                <pre className="bg-[#292b1b] p-3 rounded text-[11px] font-mono text-[#c7c8b1] overflow-x-auto">
-                  {JSON.stringify(project.apiEndpointSample.samplePayload, null, 2)}
-                </pre>
-              </div>
-            )}
-
-            {project.apiEndpointSample.sampleResponse && (
-              <div>
-                <span className="text-[10px] uppercase font-mono text-[#a08e7d] block mb-1">
-                  Response (200 OK):
-                </span>
-                <pre className="bg-[#292b1b] p-3 rounded text-[11px] font-mono text-[#dde3ba] overflow-x-auto">
-                  {JSON.stringify(project.apiEndpointSample.sampleResponse, null, 2)}
-                </pre>
-              </div>
-            )}
-          </div>
-        )}
-
         {/* Footer actions */}
         <div className="flex items-center justify-between pt-4 border-t border-[#f4dfce]">
           <span className="text-xs text-[#78776e] font-mono">
-            {project.repoNote || 'Ready for enterprise deployment & interview review'}
+            {project.repoNote || 'Project overview'}
           </span>
           <button
             onClick={onClose}

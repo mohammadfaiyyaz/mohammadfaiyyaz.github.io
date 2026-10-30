@@ -14,10 +14,6 @@ export const Experience: React.FC = () => {
               Professional Experience
             </h2>
           </div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ffeada] font-mono text-xs text-[#241a0f] border border-[#f4dfce]">
-            <span className="material-symbols-outlined text-[16px] text-[#5b6141]">verified_user</span>
-            <span>Verified Employment Records</span>
-          </div>
         </div>
 
         {/* Timeline Main Card */}
@@ -43,13 +39,10 @@ export const Experience: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-[16px] text-[#5b6141] shrink-0">schedule</span>
-                  <span className="font-semibold text-[#241a0f]">4 Years and 2 Months</span>
+                  <span className="font-semibold text-[#241a0f]">4 Years 2 Months</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-[16px] text-[#5b6141] shrink-0">date_range</span>
-                  <span className="font-mono text-xs text-[#5b6141]">
-                    [Verified Employment: Continuous Tenure]
-                  </span>
                 </div>
               </div>
 
@@ -67,7 +60,7 @@ export const Experience: React.FC = () => {
 
               <div className="pt-1">
                 <span className="font-mono text-xs uppercase text-[#47473f] block mb-2">
-                  Internal References:
+                  Focus Areas:
                 </span>
                 <span className="inline-block px-3 py-1 bg-[#f9e4d4] text-[#241a0f] rounded font-mono text-xs border border-[#f4dfce]">
                   Enterprise Healthcare &amp; Clinical Systems
@@ -75,7 +68,7 @@ export const Experience: React.FC = () => {
               </div>
             </div>
 
-            {/* Responsibilities & Verified Deliverables (col 8) */}
+            {/* Responsibilities and experience (col 8) */}
             <div className="lg:col-span-8 flex flex-col gap-5">
               <div className="bg-white p-6 sm:p-7 rounded-xl shadow-sm border border-[#f4dfce]">
                 <h4 className="text-lg sm:text-xl text-[#241a0f] font-semibold mb-3 flex items-center gap-2">
@@ -83,7 +76,7 @@ export const Experience: React.FC = () => {
                   Enterprise Hospital Information Systems (HIS Platform)
                 </h4>
                 <p className="text-[15px] text-[#47473f] leading-relaxed mb-5">
-                  Architected and maintained high-concurrency backend services orchestrating core clinical, administrative, and diagnostic workflows. Delivered zero-data-loss solutions adhering strictly to patient data protection guidelines and confidentiality standards.
+                  Worked on backend services supporting clinical, administrative, and diagnostic workflows in a hospital information system.
                 </p>
 
                 {/* Accomplishment Checklist */}
@@ -91,35 +84,35 @@ export const Experience: React.FC = () => {
                   <div className="flex items-start gap-3">
                     <span className="material-symbols-outlined text-[#5b6141] mt-0.5 text-[18px] shrink-0">check_circle</span>
                     <span>
-                      <strong className="text-[#241a0f]">Healthcare Workflows &amp; Modules:</strong> Built and refined multi-departmental workflows (OPD, IPD, lab investigations, doctor consultations, and medical billing pipelines) reducing manual operational bottlenecks.
+                      <strong className="text-[#241a0f]">Healthcare workflows:</strong> Worked on outpatient, inpatient, laboratory, consultation, and billing modules.
                     </span>
                   </div>
 
                   <div className="flex items-start gap-3">
                     <span className="material-symbols-outlined text-[#5b6141] mt-0.5 text-[18px] shrink-0">check_circle</span>
                     <span>
-                      <strong className="text-[#241a0f]">RESTful API Architecture:</strong> Engineered secure, performant ASP.NET Core Web API endpoints facilitating bi-directional data flow between relational stores and client frontend systems.
+                      <strong className="text-[#241a0f]">Web APIs:</strong> Developed ASP.NET Core endpoints used by client applications.
                     </span>
                   </div>
 
                   <div className="flex items-start gap-3">
                     <span className="material-symbols-outlined text-[#5b6141] mt-0.5 text-[18px] shrink-0">check_circle</span>
                     <span>
-                      <strong className="text-[#241a0f]">EF Core Query Optimization:</strong> Mitigated N+1 query execution bottlenecks, restructured Linq projections, and integrated optimized database stored procedures, drastically reducing latency on high-volume reports.
+                      <strong className="text-[#241a0f]">Data access:</strong> Used Entity Framework Core, LINQ, and SQL Server for application queries and reports.
                     </span>
                   </div>
 
                   <div className="flex items-start gap-3">
                     <span className="material-symbols-outlined text-[#5b6141] mt-0.5 text-[18px] shrink-0">check_circle</span>
                     <span>
-                      <strong className="text-[#241a0f]">Frontend Cross-Collaboration:</strong> Integrated Angular components with backend contracts, guaranteeing deterministic response models, strict schema validation, and cohesive error presentation.
+                      <strong className="text-[#241a0f]">Frontend collaboration:</strong> Worked with Angular components and API response models.
                     </span>
                   </div>
 
                   <div className="flex items-start gap-3">
                     <span className="material-symbols-outlined text-[#5b6141] mt-0.5 text-[18px] shrink-0">check_circle</span>
                     <span>
-                      <strong className="text-[#241a0f]">Code Review &amp; Quality Discipline:</strong> Conducted routine peer reviews, unit testing strategies, and Git feature-branch workflows to maintain enterprise code maintainability.
+                      <strong className="text-[#241a0f]">Team practices:</strong> Participated in code reviews, testing, and Git based development.
                     </span>
                   </div>
                 </div>
@@ -129,7 +122,7 @@ export const Experience: React.FC = () => {
               <div className="p-4 rounded-xl bg-[#ffeada] border border-[#f4dfce] flex items-center gap-3 text-[#47473f] text-xs sm:text-[13px]">
                 <span className="material-symbols-outlined text-[#5b6141] text-[22px] shrink-0">policy</span>
                 <span>
-                  <strong className="text-[#241a0f]">Confidentiality Assurance:</strong> Specific client identities, hospital identifiers, and proprietary clinical database schemas are safeguarded pursuant to non-disclosure agreements.
+                  <strong className="text-[#241a0f]">Project details:</strong> Some implementation details are omitted because the system is proprietary.
                 </span>
               </div>
             </div>

@@ -51,3 +51,18 @@ npm run dev
 ```bash
 npm run build
 ```
+
+## GitHub Pages and EmailJS
+
+The GitHub Pages workflow reads EmailJS settings from GitHub Actions secrets. In the repository, open **Settings → Secrets and variables → Actions** and add these repository secrets:
+
+- `VITE_EMAILJS_SERVICE_ID`
+- `VITE_EMAILJS_TEMPLATE_ID`
+- `VITE_EMAILJS_PUBLIC_KEY`
+
+Use the values from the EmailJS dashboard. After saving the secrets, push to `main` or run the **Deploy Portfolio to GitHub Pages** workflow again.
+
+In EmailJS, add these domains to the domain allowlist:
+
+- `https://mohammadfaiyyaz.github.io`
+- `http://localhost:3000` for local development

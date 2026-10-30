@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { LOGO_URL, RESUME_DOWNLOAD_URL } from '../data/portfolioData';
+import { RESUME_DOWNLOAD_URL } from '../data/portfolioData';
 
-interface HeaderProps {
-  onOpenTestRunner?: () => void;
-}
-
-export const Header: React.FC<HeaderProps> = ({ onOpenTestRunner }) => {
+export const Header: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('hero');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -14,7 +10,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRunner }) => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sections = ['hero', 'about', 'experience', 'skills', 'projects', 'education', 'resume', 'contact', 'architecture'];
+      const sections = ['hero', 'about', 'experience', 'skills', 'projects', 'education', 'resume', 'contact'];
       const scrollPosition = window.scrollY + 120;
 
       for (const sectionId of sections) {
@@ -42,8 +38,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRunner }) => {
     { id: 'projects', label: 'Projects' },
     { id: 'education', label: 'Education' },
     { id: 'resume', label: 'Resume' },
-    { id: 'contact', label: 'Contact' },
-    { id: 'architecture', label: 'Architecture & Testing' }
+    { id: 'contact', label: 'Contact' }
   ];
 
   return (
@@ -64,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRunner }) => {
           /> */}
           <div className="flex flex-col">
             <span className="font-bold text-lg tracking-tight text-[#241a0f] leading-none group-hover:text-[#5b6141] transition-colors">
-              IMFaiyyaz
+              Mohammad Faiyyaz
             </span>
             {/* <span className="text-[11px] uppercase tracking-wider text-[#5b6141] font-bold leading-tight mt-1">
               .NET Engineer • Software Developer
@@ -97,16 +92,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRunner }) => {
 
         {/* Actions Bar */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Quick API Playground Trigger */}
-          <a
-            href="#architecture"
-            className="hidden md:inline-flex items-center gap-1.5 text-xs font-mono font-medium text-[#5b6141] hover:text-[#241a0f] px-3 py-1.5 rounded-full border border-[#c4caa2] hover:bg-[#dde3ba]/40 transition-colors"
-            title="Inspect ASP.NET Core & Angular Blueprints"
-          >
-            <span className="material-symbols-outlined text-[15px]">code</span>
-            <span>API Workbench</span>
-          </a>
-
 
             {/* Download Resume Button */}
             <a
@@ -164,7 +149,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRunner }) => {
               );
             })}
             <div className="pt-3 mt-2 border-t border-[#f4dfce] flex items-center justify-between">
-              <span className="text-xs text-[#5b6141] font-mono">Noida, India • 4.2+ Yrs Exp</span>
+              <span className="text-xs text-[#5b6141] font-mono">Noida, India • 4 Years 2 Months Experience</span>
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}

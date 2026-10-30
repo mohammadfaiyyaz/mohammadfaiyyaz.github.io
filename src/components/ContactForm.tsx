@@ -1,24 +1,36 @@
 import React, { useState } from 'react';
-import { RecruiterFormPayload } from '../types';
+import emailjs from '@emailjs/browser';
+
+interface ContactFormData {
+  name: string;
+  companyName: string;
+  email: string;
+  phone: string;
+  subject: string;
+  location: string;
+  employmentType: string;
+  companyWebsite: string;
+  message: string;
+  honeypotField: string;
+}
 
 export const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState<RecruiterFormPayload>({
-    recruiterName: '',
+  const [formData, setFormData] = useState<ContactFormData>({
+    name: '',
     companyName: '',
-    recruiterEmail: '',
-    phoneNumber: '',
-    jobTitle: '',
-    jobLocation: '',
-    employmentType: 'Full-time',
+    email: '',
+    phone: '',
+    subject: '',
+    location: '',
+    employmentType: '',
     companyWebsite: '',
-    jobDescription: '',
-    additionalMessage: '',
+    message: '',
     honeypotField: ''
   });
 
   const [charCount, setCharCount] = useState<number>(0);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [submittedData, setSubmittedData] = useState<RecruiterFormPayload | null>(null);
+  const [submittedData, setSubmittedData] = useState<ContactFormData | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const handleInputChange = (
@@ -27,51 +39,98 @@ export const ContactForm: React.FC = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
-    if (name === 'jobDescription') {
+    if (name === 'message') {
       setCharCount(value.length);
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg(null);
 
-    // Basic validation
-    if (!formData.recruiterName.trim() || !formData.companyName.trim() || !formData.recruiterEmail.trim()) {
-      setErrorMsg('Please fill in all required fields marked with *');
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.message.trim()
+    ) {
+      setErrorMsg('Please complete all required fields.');
       return;
     }
 
-    // Email format validation
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(formData.recruiterEmail)) {
-      setErrorMsg('Please provide a valid work email address.');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      setErrorMsg('Please enter a valid email address.');
       return;
     }
 
     setIsSubmitting(true);
 
-    // Simulate ASP.NET Core Controller Ingestion & SMTP dispatch pipeline
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmittedData({ ...formData });
+      try {
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-      // Reset form fields
-      setFormData({
-        recruiterName: '',
-        companyName: '',
-        recruiterEmail: '',
-        phoneNumber: '',
-        jobTitle: '',
-        jobLocation: '',
-        employmentType: 'Full-time',
-        companyWebsite: '',
-        jobDescription: '',
-        additionalMessage: '',
-        honeypotField: ''
-      });
-      setCharCount(0);
-    }, 1200);
+        if (!serviceId || !templateId || !publicKey) {
+          throw new Error('EmailJS configuration is missing.');
+        }
+
+        await emailjs.send(
+          serviceId,
+          templateId,
+          {
+            title: 'Website contact',
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+            time: new Date().toLocaleString(),
+            recruiter_name: formData.name,
+            company_name: formData.companyName.trim() || 'Not provided',
+            recruiter_email: formData.email,
+            phone_number: formData.phone.trim() || 'Not provided',
+            job_title: formData.subject.trim() || 'General inquiry',
+            job_location: formData.location.trim() || 'Not provided',
+            employment_type: formData.employmentType || 'Not specified',
+            company_website: formData.companyWebsite.trim() || 'Not provided',
+            job_description: formData.message,
+          },
+          { publicKey }
+        );
+
+        // Email successfully sent
+        setSubmittedData({ ...formData });
+
+        // Reset form fields
+        setFormData({
+          name: '',
+          companyName: '',
+          email: '',
+          phone: '',
+          subject: '',
+          location: '',
+          employmentType: '',
+          companyWebsite: '',
+          message: '',
+          honeypotField: '',
+        });
+
+        setCharCount(0);
+      } catch (error) {
+        console.error('Email sending failed:', error);
+        setSubmittedData(null);
+        const errorText =
+          typeof error === 'object' && error !== null && 'text' in error &&
+          typeof error.text === 'string'
+            ? error.text
+            : error instanceof Error
+              ? error.message
+              : '';
+        setErrorMsg(
+          errorText
+            ? `EmailJS error: ${errorText}`
+            : 'Your message could not be sent. Please check the EmailJS setup and try again.'
+        );
+      } finally {
+        setIsSubmitting(false);
+      }
   };
 
   return (
@@ -81,14 +140,14 @@ export const ContactForm: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
             <span className="text-[11px] font-bold uppercase text-[#5b6141] tracking-widest block">
-              07 // Recruiter &amp; Talent Direct Channel
+              07 // Contact
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-[#241a0f] tracking-tight mt-1">
-              Recruiter Inquiries &amp; Opportunity Submission
+              Get in Touch
             </h2>
           </div>
           <p className="text-[15px] text-[#47473f] max-w-sm">
-            Strict response SLA. Automatically ingested by custom ASP.NET Core backend handler.
+            Have a question, idea, or opportunity? Send me a message.
           </p>
         </div>
 
@@ -110,27 +169,46 @@ export const ContactForm: React.FC = () => {
                 />
               </div>
 
-              {/* Row 1: Recruiter Name & Company Name */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs sm:text-sm font-semibold text-[#241a0f]" htmlFor="recruiterName">
-                    Recruiter / Hiring Manager Name <span className="text-[#ba1a1a]">*</span>
+                  <label className="text-xs sm:text-sm font-semibold text-[#241a0f]" htmlFor="name">
+                    Name <span className="text-[#ba1a1a]">*</span>
                   </label>
                   <input
                     className="w-full px-4 py-2.5 rounded-lg bg-[#fff1e7] text-[#241a0f] border border-transparent focus:border-[#5b6141] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#5b6141] text-sm transition-all"
-                    id="recruiterName"
-                    name="recruiterName"
-                    value={formData.recruiterName}
+                    id="name"
+                    name="name"
+                    value={formData.name}
                     onChange={handleInputChange}
-                    placeholder="e.g. Sarah Jenkins"
+                    placeholder="Your name"
+                    autoComplete="name"
                     required
                     type="text"
                   />
                 </div>
 
                 <div className="flex flex-col gap-1.5">
+                  <label className="text-xs sm:text-sm font-semibold text-[#241a0f]" htmlFor="email">
+                    Email <span className="text-[#ba1a1a]">*</span>
+                  </label>
+                  <input
+                    className="w-full px-4 py-2.5 rounded-lg bg-[#fff1e7] text-[#241a0f] border border-transparent focus:border-[#5b6141] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#5b6141] text-sm transition-all"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="you@example.com"
+                    autoComplete="email"
+                    required
+                    type="email"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-1.5">
                   <label className="text-xs sm:text-sm font-semibold text-[#241a0f]" htmlFor="companyName">
-                    Company / Organization <span className="text-[#ba1a1a]">*</span>
+                    Company / Organization <span className="text-[#78776e] font-normal">(Optional)</span>
                   </label>
                   <input
                     className="w-full px-4 py-2.5 rounded-lg bg-[#fff1e7] text-[#241a0f] border border-transparent focus:border-[#5b6141] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#5b6141] text-sm transition-all"
@@ -138,87 +216,63 @@ export const ContactForm: React.FC = () => {
                     name="companyName"
                     value={formData.companyName}
                     onChange={handleInputChange}
-                    placeholder="e.g. Enterprise Global Systems"
-                    required
+                    placeholder="Company or organization"
+                    autoComplete="organization"
                     type="text"
                   />
                 </div>
-              </div>
-
-              {/* Row 2: Recruiter Email & Phone */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs sm:text-sm font-semibold text-[#241a0f]" htmlFor="recruiterEmail">
-                    Work Email (Reply-To Target) <span className="text-[#ba1a1a]">*</span>
+                  <label className="text-xs sm:text-sm font-semibold text-[#241a0f]" htmlFor="phone">
+                    Phone <span className="text-[#78776e] font-normal">(Optional)</span>
                   </label>
                   <input
                     className="w-full px-4 py-2.5 rounded-lg bg-[#fff1e7] text-[#241a0f] border border-transparent focus:border-[#5b6141] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#5b6141] text-sm transition-all"
-                    id="recruiterEmail"
-                    name="recruiterEmail"
-                    value={formData.recruiterEmail}
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
                     onChange={handleInputChange}
-                    placeholder="name@company.com"
-                    required
-                    type="email"
-                  />
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs sm:text-sm font-semibold text-[#241a0f]" htmlFor="phoneNumber">
-                    Phone Number <span className="text-[#78776e] font-normal">(Optional)</span>
-                  </label>
-                  <input
-                    className="w-full px-4 py-2.5 rounded-lg bg-[#fff1e7] text-[#241a0f] border border-transparent focus:border-[#5b6141] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#5b6141] text-sm transition-all"
-                    id="phoneNumber"
-                    name="phoneNumber"
-                    value={formData.phoneNumber}
-                    onChange={handleInputChange}
-                    placeholder="+91 or +971..."
+                    placeholder="Phone number"
+                    autoComplete="tel"
                     type="tel"
                   />
                 </div>
               </div>
 
-              {/* Row 3: Job Title & Location */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs sm:text-sm font-semibold text-[#241a0f]" htmlFor="jobTitle">
-                    Job Role / Position Title <span className="text-[#ba1a1a]">*</span>
+                  <label className="text-xs sm:text-sm font-semibold text-[#241a0f]" htmlFor="subject">
+                    Subject / Job Title <span className="text-[#78776e] font-normal">(Optional)</span>
                   </label>
                   <input
                     className="w-full px-4 py-2.5 rounded-lg bg-[#fff1e7] text-[#241a0f] border border-transparent focus:border-[#5b6141] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#5b6141] text-sm transition-all"
-                    id="jobTitle"
-                    name="jobTitle"
-                    value={formData.jobTitle}
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
                     onChange={handleInputChange}
-                    placeholder="e.g. Senior .NET Developer / Full-Stack Engineer"
-                    required
+                    placeholder="What is your message about?"
                     type="text"
                   />
                 </div>
-
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs sm:text-sm font-semibold text-[#241a0f]" htmlFor="jobLocation">
-                    Job Location <span className="text-[#ba1a1a]">*</span>
+                  <label className="text-xs sm:text-sm font-semibold text-[#241a0f]" htmlFor="location">
+                    Location <span className="text-[#78776e] font-normal">(Optional)</span>
                   </label>
                   <input
                     className="w-full px-4 py-2.5 rounded-lg bg-[#fff1e7] text-[#241a0f] border border-transparent focus:border-[#5b6141] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#5b6141] text-sm transition-all"
-                    id="jobLocation"
-                    name="jobLocation"
-                    value={formData.jobLocation}
+                    id="location"
+                    name="location"
+                    value={formData.location}
                     onChange={handleInputChange}
-                    placeholder="Noida / Remote / Hybrid / Dubai"
-                    required
+                    placeholder="City, country, or remote"
                     type="text"
                   />
                 </div>
               </div>
 
-              {/* Row 4: Employment Type & LinkedIn */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-xs sm:text-sm font-semibold text-[#241a0f]" htmlFor="employmentType">
-                    Employment Type <span className="text-[#ba1a1a]">*</span>
+                    Engagement Type <span className="text-[#78776e] font-normal">(Optional)</span>
                   </label>
                   <select
                     className="w-full px-4 py-2.5 rounded-lg bg-[#fff1e7] text-[#241a0f] border border-transparent focus:border-[#5b6141] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#5b6141] text-sm transition-all"
@@ -226,18 +280,17 @@ export const ContactForm: React.FC = () => {
                     name="employmentType"
                     value={formData.employmentType}
                     onChange={handleInputChange}
-                    required
                   >
-                    <option value="Full-time">Full-time Permanent</option>
+                    <option value="">Select if relevant</option>
+                    <option value="Full-time">Full-time</option>
                     <option value="Contract">Contract / Consulting</option>
                     <option value="Part-time">Part-time</option>
-                    <option value="Other">Other Engagement Model</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
-
                 <div className="flex flex-col gap-1.5">
                   <label className="text-xs sm:text-sm font-semibold text-[#241a0f]" htmlFor="companyWebsite">
-                    LinkedIn / Company URL <span className="text-[#78776e] font-normal">(Optional)</span>
+                    Company / LinkedIn URL <span className="text-[#78776e] font-normal">(Optional)</span>
                   </label>
                   <input
                     className="w-full px-4 py-2.5 rounded-lg bg-[#fff1e7] text-[#241a0f] border border-transparent focus:border-[#5b6141] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#5b6141] text-sm transition-all"
@@ -245,17 +298,16 @@ export const ContactForm: React.FC = () => {
                     name="companyWebsite"
                     value={formData.companyWebsite}
                     onChange={handleInputChange}
-                    placeholder="https://linkedin.com/company/..."
+                    placeholder="https://example.com"
                     type="url"
                   />
                 </div>
               </div>
 
-              {/* Row 5: Job Description & Char Counter */}
               <div className="flex flex-col gap-1.5">
                 <div className="flex justify-between items-center">
-                  <label className="text-xs sm:text-sm font-semibold text-[#241a0f]" htmlFor="jobDescription">
-                    Job Description / Opportunity Details <span className="text-[#ba1a1a]">*</span>
+                  <label className="text-xs sm:text-sm font-semibold text-[#241a0f]" htmlFor="message">
+                    Message <span className="text-[#ba1a1a]">*</span>
                   </label>
                   <span className="font-mono text-xs text-[#78776e]">
                     {charCount} / 2000
@@ -263,33 +315,16 @@ export const ContactForm: React.FC = () => {
                 </div>
                 <textarea
                   className="w-full px-4 py-2.5 rounded-lg bg-[#fff1e7] text-[#241a0f] border border-transparent focus:border-[#5b6141] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#5b6141] text-sm transition-all"
-                  id="jobDescription"
+                  id="message"
                   maxLength={2000}
-                  name="jobDescription"
-                  value={formData.jobDescription}
+                  name="message"
+                  value={formData.message}
                   onChange={handleInputChange}
-                  placeholder="Paste key responsibilities, tech stack requirements, and expected timeline..."
+                  placeholder="Write your message..."
                   required
-                  rows={4}
+                  rows={6}
                 />
               </div>
-
-              {/* Row 6: Additional Message */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-xs sm:text-sm font-semibold text-[#241a0f]" htmlFor="additionalMessage">
-                  Additional Note / Compensation Range <span className="text-[#78776e] font-normal">(Optional)</span>
-                </label>
-                <input
-                  className="w-full px-4 py-2.5 rounded-lg bg-[#fff1e7] text-[#241a0f] border border-transparent focus:border-[#5b6141] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#5b6141] text-sm transition-all"
-                  id="additionalMessage"
-                  name="additionalMessage"
-                  value={formData.additionalMessage}
-                  onChange={handleInputChange}
-                  placeholder="e.g. Budget range, immediate joining requirement..."
-                  type="text"
-                />
-              </div>
-
               {/* Validation Error Banner */}
               {errorMsg && (
                 <div className="p-3 bg-[#ffdad6] text-[#93000a] rounded-lg text-xs font-semibold">
@@ -313,18 +348,18 @@ export const ContactForm: React.FC = () => {
                   </span>
                   <span>
                     {isSubmitting
-                      ? 'Processing ASP.NET Core Request...'
-                      : 'Send Recruiter Enquiry'}
+                      ? 'Sending message...'
+                      : 'Send Message'}
                   </span>
                 </button>
 
                 <span className="font-mono text-xs text-[#5b6141] flex items-center gap-1.5">
                   <span className="material-symbols-outlined text-[16px]">lock</span>
-                  <span>Direct delivery with Reply-To recruiter verification</span>
+                  <span>Please don’t include sensitive personal information.</span>
                 </span>
               </div>
 
-              {/* Simulated Response Alert (Dynamic) */}
+              {/* Submission confirmation */}
               {submittedData && (
                 <div className="p-5 rounded-xl bg-[#dde3ba] text-[#191e05] border border-[#c4caa2] transition-all duration-300">
                   <div className="flex items-start gap-3">
@@ -333,10 +368,10 @@ export const ContactForm: React.FC = () => {
                     </span>
                     <div>
                       <h4 className="font-bold text-[#241a0f] text-sm">
-                        Enquiry Successfully Dispatched • HTTP 200 OK
+                        Message sent
                       </h4>
                       <p className="mt-1 text-xs sm:text-sm text-[#47473f] leading-relaxed">
-                        Thank you, <strong className="text-[#241a0f]">{submittedData.recruiterName}</strong>. Your opportunity specification for <em className="text-[#241a0f]">"{submittedData.jobTitle}"</em> at <strong className="text-[#241a0f]">{submittedData.companyName}</strong> was received. An automated verification receipt was simulated for <code className="bg-white/80 px-1 py-0.5 rounded font-mono text-xs text-[#5b6141]">{submittedData.recruiterEmail}</code>. Mohammad Faiyyaz will review and respond promptly.
+                        Thank you, <strong className="text-[#241a0f]">{submittedData.name}</strong>. Your message was sent successfully. I’ll review it and get back to you soon.
                       </p>
                     </div>
                   </div>
@@ -380,11 +415,11 @@ export const ContactForm: React.FC = () => {
                     </span>
                     <a
                       className="font-mono text-xs text-[#241a0f] hover:text-[#5b6141] underline"
-                      href="https://www.linkedin.com/in/mohammadfaiyyaz/?isSelfProfile=true"
+                      href="https://www.linkedin.com/in/mohammadfaiyyaz/"
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      linkedin.com/in/mohammadfaiyyaz
+                      Mohammad Faiyyaz
                     </a>
                   </div>
                 </div>
@@ -403,7 +438,7 @@ export const ContactForm: React.FC = () => {
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      github.com/mohammadfaiyyaz
+                      Mohammad Faiyyaz
                     </a>
                   </div>
                 </div>
@@ -425,10 +460,10 @@ export const ContactForm: React.FC = () => {
 
               <div className="p-4 bg-[#ffeada] rounded-xl border border-[#f4dfce]">
                 <span className="text-[11px] font-bold uppercase text-[#5b6141] block mb-1">
-                  Response Window
+                  Response Time
                 </span>
                 <p className="text-xs text-[#47473f] leading-relaxed">
-                  Active recruiter messages received via this form are acknowledged within 24 business hours.
+                  I’ll review your message and respond as soon as I can.
                 </p>
               </div>
             </div>

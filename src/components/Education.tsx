@@ -15,7 +15,7 @@ export const Education: React.FC = () => {
             </h2>
           </div>
           <p className="text-[15px] text-[#47473f] max-w-sm">
-            Formal academic training combined with ongoing enterprise technical certifications.
+            Academic background and areas of professional development.
           </p>
         </div>
 
@@ -37,7 +37,7 @@ export const Education: React.FC = () => {
               </p>
               <div className="flex items-center gap-2 text-[#47473f] font-mono text-xs">
                 <span className="material-symbols-outlined text-[16px] text-[#5b6141]">calendar_month</span>
-                <span>Graduated with Core Software Engineering &amp; Data Structures Focus</span>
+                <span>Computer Applications</span>
               </div>
             </div>
 
@@ -57,7 +57,7 @@ export const Education: React.FC = () => {
               </p>
               <div className="flex items-center gap-2 text-[#47473f] font-mono text-xs">
                 <span className="material-symbols-outlined text-[16px] text-[#5b6141]">calendar_month</span>
-                <span>Graduated with Core Software Engineering &amp; Data Structures Focus</span>
+                <span>Computer Applications</span>
               </div>
             </div>
 
@@ -68,40 +68,31 @@ export const Education: React.FC = () => {
             </div>
           </div>
 
-          {/* Professional Certifications & Continuous Learning */}
+          {/* Technical focus */}
           <div className="bg-white p-7 sm:p-8 rounded-2xl shadow-sm border border-[#f4dfce] flex flex-col justify-between">
             <div>
               <div className="w-10 h-10 rounded-full bg-[#dde3ba] flex items-center justify-center text-[#606645] mb-5">
                 <span className="material-symbols-outlined text-[20px]">workspace_premium</span>
               </div>
               <span className="text-[11px] font-bold uppercase text-[#5b6141] tracking-widest block mb-1">
-                Engineering Specialization
+                Technical Focus
               </span>
               <h3 className="text-xl sm:text-2xl font-bold text-[#241a0f] mb-2">
-                Continuous Professional Certifications &amp; Technical Milestones
+                Areas of Professional Development
               </h3>
               <p className="text-[15px] text-[#47473f] mb-5 leading-relaxed">
-                Committed to active ongoing mastery across modern .NET architectures, microservices scalability, Angular state patterns, and secure SQL data operations.
+                Ongoing learning across .NET development, web APIs, Angular, and SQL Server.
               </p>
               <div className="space-y-2.5 font-mono text-xs sm:text-[13px] text-[#241a0f]">
-                <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-[#5b6141] text-[16px] shrink-0">check</span>
-                  <span>ASP.NET Core Web API Architecture Standards</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-[#5b6141] text-[16px] shrink-0">check</span>
-                  <span>Relational Query Profiling &amp; Index Design</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-[#5b6141] text-[16px] shrink-0">check</span>
-                  <span>Modern TypeScript &amp; Angular Client Development</span>
-                </div>
+                <span>ASP.NET Core and REST APIs</span>
+                <span>SQL Server and Entity Framework Core</span>
+                <span>Angular and TypeScript</span>
               </div>
             </div>
 
             <div className="pt-5 mt-6 border-t border-[#f4dfce]">
               <span className="font-mono text-xs text-[#5b6141] font-semibold">
-                Verified Continuous Learning Record
+                Current areas of focus
               </span>
             </div>
           </div>

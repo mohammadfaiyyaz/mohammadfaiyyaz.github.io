@@ -40,9 +40,7 @@ export const Projects: React.FC = () => {
                   <span className="px-3 py-1 rounded-full bg-[#5b6141] text-white text-[11px] font-bold uppercase">
                     Enterprise Solution
                   </span>
-                  <span className="font-mono text-xs text-[#5b6141] font-semibold">
-                    [Verified Professional Work at TrioTree Technology]
-                  </span>
+                  <span className="font-mono text-xs text-[#5b6141] font-semibold">Professional experience</span>
                 </div>
                 <h3 className="text-2xl font-bold text-[#241a0f]">
                   Healthcare Management Software (HIS Platform)
@@ -54,7 +52,7 @@ export const Projects: React.FC = () => {
                   className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white hover:bg-[#5b6141] hover:text-white text-[#241a0f] text-xs font-semibold border border-[#f4dfce] shadow-sm transition-all"
                 >
                   <span className="material-symbols-outlined text-[16px]">visibility</span>
-                  <span>Inspect API &amp; Models</span>
+                  <span>Project Details</span>
                 </button>
               </div>
             </div>
@@ -124,27 +122,19 @@ export const Projects: React.FC = () => {
                   <span className="px-3 py-1 rounded-full bg-[#5b6141] text-white text-[11px] font-bold uppercase">
                     Full-Stack Application
                   </span>
-                  <span className="font-mono text-xs text-[#5b6141] font-semibold">
-                    [Portfolio Project — Details &amp; Links subject to confirmation]
-                  </span>
+                  <span className="font-mono text-xs text-[#5b6141] font-semibold">E-commerce project</span>
                 </div>
                 <h3 className="text-2xl font-bold text-[#241a0f]">
                   Zamzam Enterprises E-commerce Platform
                 </h3>
               </div>
               <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3 py-1 rounded-full bg-[#ffeada] text-[#47473f] font-mono text-xs border border-[#f4dfce]">
-                  [Live Demo: Coming Soon]
-                </span>
-                <span className="px-3 py-1 rounded-full bg-[#ffeada] text-[#47473f] font-mono text-xs border border-[#f4dfce]">
-                  [GitHub: Coming Soon]
-                </span>
                 <button
                   onClick={() => setInspectingProject(zamzamProject)}
                   className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white hover:bg-[#5b6141] hover:text-white text-[#241a0f] text-xs font-semibold border border-[#f4dfce] transition-all"
                 >
                   <span className="material-symbols-outlined text-[15px]">code</span>
-                  <span>Inspect Spec</span>
+                  <span>Project Details</span>
                 </button>
               </div>
             </div>
@@ -263,7 +253,7 @@ export const Projects: React.FC = () => {
                     Community &amp; Recruitment Platform
                   </span>
                   <span className="font-mono text-xs text-[#5b6141] font-semibold">
-                    [Planned / In-Progress Project]
+                    In Progress
                   </span>
                 </div>
                 <h3 className="text-2xl font-bold text-[#241a0f]">
@@ -271,18 +261,12 @@ export const Projects: React.FC = () => {
                 </h3>
               </div>
               <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3 py-1 rounded-full bg-[#ffeada] text-[#47473f] font-mono text-xs border border-[#f4dfce]">
-                  [Live Demo: Coming Soon]
-                </span>
-                <span className="px-3 py-1 rounded-full bg-[#ffeada] text-[#47473f] font-mono text-xs border border-[#f4dfce]">
-                  [GitHub: Coming Soon]
-                </span>
                 <button
                   onClick={() => setInspectingProject(jobsProject)}
                   className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white hover:bg-[#5b6141] hover:text-white text-[#241a0f] text-xs font-semibold border border-[#f4dfce] transition-all"
                 >
                   <span className="material-symbols-outlined text-[15px]">code</span>
-                  <span>Inspect Spec</span>
+                  <span>Project Details</span>
                 </button>
               </div>
             </div>
@@ -333,7 +317,7 @@ export const Projects: React.FC = () => {
                       Dual Engine: Knowledge Base + Career Board
                     </h4>
                     <p className="text-[15px] text-[#47473f] leading-relaxed">
-                      Engineered to serve developer communities with technical documentation and active career openings. Features full-text search capability, reactive Angular article filters, and candidate resume parsing endpoints via ASP.NET Core REST APIs.
+                      The planned platform brings together technical articles and IT job listings, with search and filtering across topics and roles.
                     </p>
                     <div className="flex flex-wrap gap-2 pt-2">
                       <span className="px-3 py-1 rounded bg-white text-[#241a0f] font-mono text-xs border border-[#f4dfce]">
@@ -349,7 +333,7 @@ export const Projects: React.FC = () => {
                   </div>
                   <div className="lg:col-span-5 bg-white p-5 rounded-xl border border-[#f4dfce]">
                     <span className="text-[11px] font-bold uppercase text-[#5b6141] block mb-3">
-                      Core Planned Capabilities
+                      Planned Features
                     </span>
                     <div className="space-y-2 font-mono text-xs text-[#47473f]">
                       <div>• Markdown Article Engine with Syntax Highlighting</div>
@@ -366,7 +350,7 @@ export const Projects: React.FC = () => {
                 <div className="bg-white p-6 rounded-xl border border-[#f4dfce]">
                   <h4 className="text-lg font-bold text-[#241a0f] mb-2">Publishing &amp; Application Lifecycle</h4>
                   <p className="text-[15px] text-[#47473f] mb-3 leading-relaxed">
-                    Author submits technical draft → Admin review queue → Published via static CDN cache → Recruiter opens matched requisitions for relevant article readers.
+                    The proposed workflow covers article submission and review, publication, and job discovery for readers.
                   </p>
                 </div>
               )}

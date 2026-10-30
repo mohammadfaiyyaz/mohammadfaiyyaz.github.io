@@ -8,14 +8,14 @@ export const About: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
             <span className="text-[11px] font-bold uppercase text-[#5b6141] tracking-widest block">
-              01 // Architectural Overview
+              01 // About
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-[#241a0f] tracking-tight mt-1">
-              Enterprise Developer Profile
+              About Me
             </h2>
           </div>
           <p className="text-[15px] text-[#47473f] max-w-md">
-            Specializing in mission-critical healthcare workflows, performant relational data modeling, and robust API contracts.
+            Software Developer with experience building healthcare applications and web APIs.
           </p>
         </div>
 
@@ -25,13 +25,13 @@ export const About: React.FC = () => {
           <div className="lg:col-span-7 flex flex-col gap-6">
             <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-[#f4dfce]">
               <h3 className="text-xl sm:text-2xl font-bold text-[#241a0f] mb-3">
-                Engineering Summary
+                A little about my work
               </h3>
               <p className="text-base text-[#47473f] mb-4 leading-relaxed">
-                With 4 years and 2 months of continuous engineering at TrioTree Technology Pvt. Ltd., I have engineered core operational modules for enterprise hospital management software. My focus spans robust C# backend services, ASP.NET Core Web APIs, performant Entity Framework Core queries, and transactional relational design in SQL Server.
+                I have worked at TrioTree Technology Pvt. Ltd. on hospital management software, using C#, ASP.NET Core, Entity Framework Core, and SQL Server.
               </p>
               <p className="text-[15px] text-[#47473f] leading-relaxed mb-6">
-                Working in synergy with modern Angular client architectures, I build high-availability software where data privacy, resilient clinical state machines, and API throughput are non-negotiable standards.
+                I also work with Angular and TypeScript to connect frontend applications with backend services.
               </p>
               <div className="flex flex-wrap gap-2 pt-2 border-t border-[#f4dfce]">
                 <span className="px-3 py-1 bg-[#ffeada] text-[#241a0f] font-mono text-xs rounded-md">
@@ -52,7 +52,7 @@ export const About: React.FC = () => {
               </div>
             </div>
 
-            {/* Professional Ethos Pillars */}
+            {/* Working principles */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-[#ffeada] p-5 rounded-xl border border-[#f4dfce]">
                 <div className="w-10 h-10 rounded-full bg-[#dde3ba] flex items-center justify-center text-[#606645] mb-3">
@@ -60,7 +60,7 @@ export const About: React.FC = () => {
                 </div>
                 <h4 className="text-base font-bold text-[#241a0f] mb-1">Maintainable Code</h4>
                 <p className="text-[13px] text-[#47473f] leading-relaxed">
-                  SOLID principles, modular dependency injection, and clean boundaries between business and storage layers.
+                  I aim to keep code organized and easy to maintain.
                 </p>
               </div>
 
@@ -70,7 +70,7 @@ export const About: React.FC = () => {
                 </div>
                 <h4 className="text-base font-bold text-[#241a0f] mb-1">Resilient APIs</h4>
                 <p className="text-[13px] text-[#47473f] leading-relaxed">
-                  Strict HTTP response standardizations, graceful error handling, payload validation, and idempotency.
+                  I build APIs with clear responses and validation.
                 </p>
               </div>
 
@@ -80,27 +80,27 @@ export const About: React.FC = () => {
                 </div>
                 <h4 className="text-base font-bold text-[#241a0f] mb-1">Data Governance</h4>
                 <p className="text-[13px] text-[#47473f] leading-relaxed">
-                  Confidentiality-safe healthcare data handling, parameterized queries, and ACID transactional integrity.
+                  I handle healthcare data carefully and follow project privacy requirements.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right: Career Objective & Architectural Visual (col 5) */}
+          {/* Career goals and technology stack (col 5) */}
           <div className="lg:col-span-5 flex flex-col gap-6">
-            {/* Career Objective Card */}
+            {/* Career goals */}
             <div className="bg-[#151608] text-white p-7 sm:p-8 rounded-2xl shadow-md relative overflow-hidden">
               <div className="absolute -right-8 -bottom-8 w-40 h-40 bg-[#5b6141]/30 rounded-full blur-2xl pointer-events-none" />
               <div className="flex items-center gap-2 text-[#e0e6bd] mb-3">
                 <span className="material-symbols-outlined text-[20px]">flag</span>
-                <span className="text-[11px] font-bold uppercase tracking-wider">Career Objective</span>
+                <span className="text-[11px] font-bold uppercase tracking-wider">What I’m looking for</span>
               </div>
               <blockquote className="text-lg sm:text-xl font-normal text-white italic leading-relaxed mb-6">
-                "To contribute to a technology-driven organization where I can build reliable software solutions, strengthen my full-stack engineering capabilities, and help deliver measurable business value."
+                “A software development role where I can contribute to useful products and continue growing as an engineer.”
               </blockquote>
               <div className="flex items-center gap-2 pt-2 text-[#91927d] font-mono text-xs border-t border-[#292b1b]">
                 <span className="w-2 h-2 rounded-full bg-[#dde3ba] animate-pulse shrink-0" />
-                <span>Available for high-impact .NET &amp; Full-Stack engineering</span>
+                <span>Open to .NET and full-stack opportunities</span>
               </div>
             </div>
 
@@ -108,9 +108,9 @@ export const About: React.FC = () => {
             <div className="bg-[#f9e4d4] p-6 rounded-2xl shadow-sm border border-[#f4dfce] flex flex-col gap-3">
               <div className="flex items-center justify-between">
                 <span className="text-[11px] font-bold uppercase text-[#5b6141]">
-                  Core Stack Topology
+                  Technologies I work with
                 </span>
-                <span className="font-mono text-xs text-[#47473f]">L3 Tier Pattern</span>
+                <span className="font-mono text-xs text-[#47473f]">Three-tier architecture</span>
               </div>
 
               {/* Architectural diagram snippet */}
@@ -138,7 +138,7 @@ export const About: React.FC = () => {
               </div>
 
               <p className="text-[13px] text-[#47473f] leading-relaxed">
-                Engineered for strict separation of concerns, transactional safety, and long-term codebase durability across distributed deployments.
+                Angular frontend, .NET services, and SQL Server data storage.
               </p>
             </div>
           </div>
