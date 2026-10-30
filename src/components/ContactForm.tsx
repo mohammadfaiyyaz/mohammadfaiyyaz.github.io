@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_ffccl8b';
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_n5n7qzj';
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'okxuNrNY3daqTyfw2';
+
 interface ContactFormData {
   name: string;
   companyName: string;
@@ -65,17 +69,9 @@ export const ContactForm: React.FC = () => {
     setIsSubmitting(true);
 
       try {
-        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-        if (!serviceId || !templateId || !publicKey) {
-          throw new Error('EmailJS configuration is missing.');
-        }
-
         await emailjs.send(
-          serviceId,
-          templateId,
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
           {
             title: 'Website contact',
             name: formData.name,
@@ -92,7 +88,7 @@ export const ContactForm: React.FC = () => {
             company_website: formData.companyWebsite.trim() || 'Not provided',
             job_description: formData.message,
           },
-          { publicKey }
+          { publicKey: EMAILJS_PUBLIC_KEY }
         );
 
         // Email successfully sent

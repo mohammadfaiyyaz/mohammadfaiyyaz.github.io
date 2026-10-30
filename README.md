@@ -64,6 +64,8 @@ For `mohammadfaiyyaz.vercel.app`, open **Vercel → Project → Settings → Env
 
 Redeploy the project after saving them. In EmailJS, add `https://mohammadfaiyyaz.vercel.app` to the domain allowlist.
 
+The contact form also includes the browser-safe EmailJS identifiers as fallbacks, so a deployment can work before these Vercel variables are configured. Vercel variables are still recommended so the identifiers can be updated without editing the source code.
+
 ### GitHub Pages
 
 The GitHub Pages workflow reads EmailJS settings at build time. In the repository, open **Settings → Environments → github-pages → Environment secrets** and add:
